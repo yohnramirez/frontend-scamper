@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { TipdocsComponent } from './tipdocs/tipdocs.component';
-import { ServiciofrontService } from './serviciofront.service';
-
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
+import { ServiciofrontService } from './serviciofront.service';
+
+// Importación de los componentes por cada una de las entidades de la BBDD
+import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+import { EstudianteComponent } from './estudiante/estudiante.component';
 
 const appRoutes: Routes = [
   {
@@ -23,16 +23,16 @@ const appRoutes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'tipdocs',
-    component: TipdocsComponent
-  }
+    path: 'estudiante',
+    component: EstudianteComponent
+  },
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    TipdocsComponent
+    EstudianteComponent
   ],
   imports: [
     BrowserModule,

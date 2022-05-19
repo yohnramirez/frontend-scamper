@@ -1,0 +1,13 @@
+.container{
+    text-align: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.container h2{
+    padding: 30px 0;
+}
+
+.buscar form label{
+    margin: 0 10px;
+}

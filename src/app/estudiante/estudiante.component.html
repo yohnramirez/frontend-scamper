@@ -1,0 +1,68 @@
+<!-- Mostrar listado de estudiantes -->
+<div class="container border border-primary shadow p-3 mb-5 bg-body rounded">
+    <h2>{{title}}</h2>
+
+    <form (ngSubmit)= "consultaEstudiantes(1)" [formGroup]="ListaEstudiantes">
+        <button class="btn btn-primary" type="submit">Mostrar Estudiantes</button>
+        <button (click)="limpiarLista()" class="btn btn-danger mx-4">Limpiar listado</button>
+
+        <h4 class="my-4">{{TituloEstudiantes}}</h4>
+
+        <table class="table table-hover">
+            <thead>
+                <th>{{TablaEstudiantes[0]}}</th>
+                <th>{{TablaEstudiantes[1]}}</th>
+                <th>{{TablaEstudiantes[2]}}</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let est of Estudiantes">
+                    <th>{{est.id_estudiante}}</th>
+                    <th>{{est.primer_nombre_estudiante}}</th>
+                    <th>{{est.primer_apellido_estudiante}}</th>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+
+<!-- Mostrar un sólo estudiante -->
+<div class="container buscar border border-primary shadow p-3 mb-5 bg-body rounded">
+    <h2>Buscar Estudiante</h2>
+
+    <form (ngSubmit)= "buscarEstudiante()" [formGroup]="filtrarEstudiante">
+
+        <label for="id_estudiante">ID del Estudiante</label>
+
+        <select name="id_estudiante" id="id_estudiante" formControlName="combofiltro" (click)="consultaEstudiantes(2)">
+            <option value="1">Estudiante a buscar</option>
+            <option *ngFor="let est of comboListaEstudiante" [value]="est.id_estudiante">
+                {{est.id_estudiante}} - 
+                {{est.primer_nombre_estudiante}}
+                {{est.primer_apellido_estudiante}}
+            </option>
+        </select>
+
+        <br>
+
+        <button class="btn btn-primary my-4">Buscar estudiante</button>
+    </form>
+
+    <h4>{{TituloEstudiante}}</h4>
+
+        <table class="table table-hover">
+            <thead>
+                <th>{{TablaEstudiantes[0]}}</th>
+                <th>{{TablaEstudiantes[1]}}</th>
+                <th>{{TablaEstudiantes[2]}}</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let miest of MiEstudiante">
+                    <th>{{miest.id_estudiante}}</th>
+                    <th>{{miest.primer_nombre_estudiante}}</th>
+                    <th>{{miest.primer_apellido_estudiante}}</th>
+                </tr>
+            </tbody>
+        </table>
+</div>
+
+
